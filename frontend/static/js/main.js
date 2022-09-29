@@ -22,7 +22,7 @@ lis.forEach(li => {
   li.addEventListener("click", () => {
     lis.forEach(ele => ele.classList.remove("active"))
     li.classList.add("active");
-    if (window.innerWidth <= 991) {
+    if (window.innerWidth <= 767.99) {
       document.querySelector(".pages").style.display = "none";
       btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
     }
@@ -77,17 +77,17 @@ let mutationObserver = new MutationObserver((mutations) => {
                 }
               })
             });
-            fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
-              info['destinations'].forEach(inf => {
-                if (inf["name"].toLowerCase() == nameOfPlante.innerHTML.toLowerCase()) {
-                  image.src = inf.images.png;
-                  image.alt = inf.name.toLowerCase();
-                  information.innerHTML = inf.description;
-                  distance.innerHTML = inf.distance;
-                  travel.innerHTML = inf.travel;
-                }
-              })
-            });
+            // fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
+            //   info['destinations'].forEach(inf => {
+            //     if (inf["name"].toLowerCase() == nameOfPlante.innerHTML.toLowerCase()) {
+            //       image.src = inf.images.png;
+            //       image.alt = inf.name.toLowerCase();
+            //       information.innerHTML = inf.description;
+            //       distance.innerHTML = inf.distance;
+            //       travel.innerHTML = inf.travel;
+            //     }
+            //   })
+            // });
           })
         })
       }
@@ -132,20 +132,20 @@ let mutationObserver = new MutationObserver((mutations) => {
               }
             })
           });
-          fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
-            info['crew'].forEach(inf => {
-              if (inf.images["png"].split("-").slice(1).join(" ").slice(0, -4) == images[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
-                role.innerHTML = inf.role;
-                name.innerHTML = inf.name;
-                bio.innerHTML = inf.bio;
-                imgs.forEach(img => {
-                  if (img.classList.contains("active")) {
-                    img.firstChild.alt = inf.name.toLowerCase()
-                  }
-                })
-              }
-            })
-          });
+          // fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
+          //   info['crew'].forEach(inf => {
+          //     if (inf.images["png"].split("-").slice(1).join(" ").slice(0, -4) == images[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
+          //       role.innerHTML = inf.role;
+          //       name.innerHTML = inf.name;
+          //       bio.innerHTML = inf.bio;
+          //       imgs.forEach(img => {
+          //         if (img.classList.contains("active")) {
+          //           img.firstChild.alt = inf.name.toLowerCase()
+          //         }
+          //       })
+          //     }
+          //   })
+          // });
         }
         theChecker();
       }
@@ -195,26 +195,26 @@ let mutationObserver = new MutationObserver((mutations) => {
               }
             })
           });
-          fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
-            info['technology'].forEach(inf => {
-              if (inf.images["portrait"].split("-").slice(1).join(" ").slice(0, -4) == images2[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
-                name2.innerHTML = inf.name;
-                description.innerHTML = inf.description;
-                imgs2.forEach(img => {
-                  if (img.classList.contains("active")) {
-                    img.firstChild.alt = inf.name.toLowerCase()
-                    setInterval(() => {
-                      if (window.innerWidth <= 991) {
-                        img.firstChild.src = inf.images.landscape;
-                      } else {
-                        img.firstChild.src = inf.images.portrait;
-                      }
-                    }, 50);
-                  }
-                })
-              }
-            })
-          });
+          // fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
+          //   info['technology'].forEach(inf => {
+          //     if (inf.images["portrait"].split("-").slice(1).join(" ").slice(0, -4) == images2[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
+          //       name2.innerHTML = inf.name;
+          //       description.innerHTML = inf.description;
+          //       imgs2.forEach(img => {
+          //         if (img.classList.contains("active")) {
+          //           img.firstChild.alt = inf.name.toLowerCase()
+          //           setInterval(() => {
+          //             if (window.innerWidth <= 991) {
+          //               img.firstChild.src = inf.images.landscape;
+          //             } else {
+          //               img.firstChild.src = inf.images.portrait;
+          //             }
+          //           }, 50);
+          //         }
+          //       })
+          //     }
+          //   })
+          // });
         }
         theChecker();
       }
