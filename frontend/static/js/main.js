@@ -4,7 +4,7 @@ btn.onclick = () => {
   document.querySelector(".pages").style.display = "flex";
   btn.children[0].src = "static/assets/shared/icon-close.svg";
   btn.addEventListener("click", () => {
-    if (btn.children[0].src == "https://enigmatic-meadow-74854.herokuapp.com/static/assets/shared/icon-close.svg") {
+    if (btn.children[0].src == "https://enigmatic-meadow-74854.herokuapp.com/static/assets/shared/icon-close.svg" || window.location.href == "http://localhost:7000/static/assets/shared/icon-close.svg") {
       document.querySelector(".pages").style.display = "none";
       btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
     } else {
@@ -30,19 +30,19 @@ lis.forEach(li => {
 })
 
 setInterval(()=> {
-  if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/destination") {
+  if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/destination" || window.location.href == "http://localhost:7000/destination") {
   lis.forEach(li => {
       li.innerText == "01 Destination" ? li.classList.add("active"): li.classList.remove("active")
   })
-} else if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/crew") {
+} else if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/crew" || window.location.href == "http://localhost:7000/crew") {
   lis.forEach(li => {
       li.innerText == "02 Crew" ? li.classList.add("active"): li.classList.remove("active")
   })
-} else if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/technology") {
+} else if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/technology" || window.location.href == "http://localhost:7000/technology") {
   lis.forEach(li => {
       li.innerText == "03 Technology" ? li.classList.add("active"): li.classList.remove("active")
   })
-} else if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/") {
+} else if (window.location.href == "https://enigmatic-meadow-74854.herokuapp.com/" || window.location.href == "http://localhost:7000/") {
   lis.forEach(li => {
       li.innerText == "00 Home" ? li.classList.add("active"): li.classList.remove("active")
   })
@@ -67,6 +67,17 @@ let mutationObserver = new MutationObserver((mutations) => {
               nameOfPlante.innerHTML = link.innerHTML;
             }
             fetch("https://enigmatic-meadow-74854.herokuapp.com/json").then(data => data.json()).then(info => {
+              info['destinations'].forEach(inf => {
+                if (inf["name"].toLowerCase() == nameOfPlante.innerHTML.toLowerCase()) {
+                  image.src = inf.images.png;
+                  image.alt = inf.name.toLowerCase();
+                  information.innerHTML = inf.description;
+                  distance.innerHTML = inf.distance;
+                  travel.innerHTML = inf.travel;
+                }
+              })
+            });
+            fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
               info['destinations'].forEach(inf => {
                 if (inf["name"].toLowerCase() == nameOfPlante.innerHTML.toLowerCase()) {
                   image.src = inf.images.png;
@@ -108,6 +119,20 @@ let mutationObserver = new MutationObserver((mutations) => {
           imgs[currentSlide - 1].classList.add('active');
           ulDots.children[currentSlide - 1].classList.add('active');
           fetch("https://enigmatic-meadow-74854.herokuapp.com/json").then(data => data.json()).then(info => {
+            info['crew'].forEach(inf => {
+              if (inf.images["png"].split("-").slice(1).join(" ").slice(0, -4) == images[currentSlide - 1].src.split("-").slice(3).join(" ").slice(0, -4)) {
+                role.innerHTML = inf.role;
+                name.innerHTML = inf.name;
+                bio.innerHTML = inf.bio;
+                imgs.forEach(img => {
+                  if (img.classList.contains("active")) {
+                    img.firstChild.alt = inf.name.toLowerCase()
+                  }
+                })
+              }
+            })
+          });
+          fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
             info['crew'].forEach(inf => {
               if (inf.images["png"].split("-").slice(1).join(" ").slice(0, -4) == images[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
                 role.innerHTML = inf.role;
@@ -151,6 +176,26 @@ let mutationObserver = new MutationObserver((mutations) => {
           imgs2[currentSlide - 1].classList.add('active');
           ulDots2.children[currentSlide - 1].classList.add('active');
           fetch("https://enigmatic-meadow-74854.herokuapp.com/json").then(data => data.json()).then(info => {
+            info['technology'].forEach(inf => {
+              if (inf.images["portrait"].split("-").slice(1).join(" ").slice(0, -4) == images2[currentSlide - 1].src.split("-").slice(3).join(" ").slice(0, -4)) {
+                name2.innerHTML = inf.name;
+                description.innerHTML = inf.description;
+                imgs2.forEach(img => {
+                  if (img.classList.contains("active")) {
+                    img.firstChild.alt = inf.name.toLowerCase()
+                    setInterval(() => {
+                      if (window.innerWidth <= 991) {
+                        img.firstChild.src = inf.images.landscape;
+                      } else {
+                        img.firstChild.src = inf.images.portrait;
+                      }
+                    }, 50);
+                  }
+                })
+              }
+            })
+          });
+          fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
             info['technology'].forEach(inf => {
               if (inf.images["portrait"].split("-").slice(1).join(" ").slice(0, -4) == images2[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
                 name2.innerHTML = inf.name;

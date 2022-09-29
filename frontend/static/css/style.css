@@ -110,6 +110,17 @@ html {
     justify-content: space-around;
   }
 }
+@media (min-width: 768px) and (min-width: 768px) {
+  .container .header .nav .hamburger-icon .pages {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 70rem;
+    padding: 0 4rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
 @media (min-width: 768px) and (max-width: 860px) {
   .container .header .nav .hamburger-icon .pages {
     width: 60rem;
