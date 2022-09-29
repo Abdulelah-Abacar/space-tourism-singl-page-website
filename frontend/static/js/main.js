@@ -100,20 +100,16 @@ let mutationObserver = new MutationObserver((mutations) => {
       let role = document.querySelector(".crew-content .role");
       let name = document.querySelector(".crew-content .name");
       let bio = document.querySelector(".crew-content .bio");
+      var currentSlide = 1;
       if (dots.length) {
         dots.forEach(dot => {
           dot.addEventListener("click", () => {
             dots.forEach(ele => ele.classList.remove("active"))
             dot.classList.add("active");
+            currentSlide = parseInt(dot.getAttribute('data-index'));
+            theChecker();
           })
         })
-        var currentSlide = 1;
-        for (var i = 0; i < dots.length; i++) {
-          dots[i].onclick = function () {
-            currentSlide = parseInt(this.getAttribute('data-index'));
-            theChecker();
-          }
-        }
         function theChecker() {
           imgs.forEach(img => img.classList.remove("active"))
           imgs[currentSlide - 1].classList.add('active');
@@ -157,20 +153,16 @@ let mutationObserver = new MutationObserver((mutations) => {
       let ulDots2 = document.querySelector(".dots");
       let name2 = document.querySelector(".name");
       let description = document.querySelector(".description");
+      var currentSlide = 1;
       if (dots2.length) {
         dots2.forEach(dot => {
           dot.addEventListener("click", () => {
             dots2.forEach(ele => ele.classList.remove("active"))
             dot.classList.add("active");
+            currentSlide = parseInt(dot.getAttribute('data-index'));
+              theChecker();
           })
         })
-        var currentSlide = 1;
-        for (var i = 0; i < dots2.length; i++) {
-          dots2[i].onclick = function () {
-            currentSlide = parseInt(this.getAttribute('data-index'));
-            theChecker();
-          }
-        }
         function theChecker() {
           imgs2.forEach(img => img.classList.remove("active"))
           imgs2[currentSlide - 1].classList.add('active');
@@ -178,11 +170,11 @@ let mutationObserver = new MutationObserver((mutations) => {
           fetch("https://enigmatic-meadow-74854.herokuapp.com/json").then(data => data.json()).then(info => {
             info['technology'].forEach(inf => {
               if (inf.images["portrait"].split("-").slice(1).join(" ").slice(0, -4) == images2[currentSlide - 1].src.split("-").slice(3).join(" ").slice(0, -4)) {
-                name2.innerHTML = inf.name;
-                description.innerHTML = inf.description;
                 imgs2.forEach(img => {
                   if (img.classList.contains("active")) {
                     img.firstChild.alt = inf.name.toLowerCase()
+                    name2.innerHTML = inf.name;
+                    description.innerHTML = inf.description;
                     setInterval(() => {
                       if (window.innerWidth <= 991) {
                         img.firstChild.src = inf.images.landscape;
@@ -191,6 +183,16 @@ let mutationObserver = new MutationObserver((mutations) => {
                       }
                     }, 50);
                   }
+                  dots2.forEach(dot => {
+                    dot.addEventListener("click", () => {
+                      if (img.classList.contains("active")) {
+                        name2.innerHTML = img.firstChild.alt;
+                        if (inf.name.toLowerCase() == name2.innerHTML.toLowerCase()) {
+                          description.innerHTML = inf.description
+                        }
+                      }
+                    })
+                  })
                 })
               }
             })
@@ -198,11 +200,11 @@ let mutationObserver = new MutationObserver((mutations) => {
           // fetch("http://localhost:7000/json").then(data => data.json()).then(info => {
           //   info['technology'].forEach(inf => {
           //     if (inf.images["portrait"].split("-").slice(1).join(" ").slice(0, -4) == images2[currentSlide - 1].src.split("-").slice(1).join(" ").slice(0, -4)) {
-          //       name2.innerHTML = inf.name;
-          //       description.innerHTML = inf.description;
           //       imgs2.forEach(img => {
           //         if (img.classList.contains("active")) {
           //           img.firstChild.alt = inf.name.toLowerCase()
+          //           name2.innerHTML = inf.name;
+          //           description.innerHTML = inf.description;
           //           setInterval(() => {
           //             if (window.innerWidth <= 991) {
           //               img.firstChild.src = inf.images.landscape;
@@ -211,6 +213,16 @@ let mutationObserver = new MutationObserver((mutations) => {
           //             }
           //           }, 50);
           //         }
+          //         dots2.forEach(dot => {
+          //           dot.addEventListener("click", () => {
+          //             if (img.classList.contains("active")) {
+          //               name2.innerHTML = img.firstChild.alt;
+          //               if (inf.name.toLowerCase() == name2.innerHTML.toLowerCase()) {
+          //                 description.innerHTML = inf.description
+          //               }
+          //             }
+          //           })
+          //         })
           //       })
           //     }
           //   })
@@ -219,8 +231,6 @@ let mutationObserver = new MutationObserver((mutations) => {
         theChecker();
       }
     }
-
-
   })
 })
 mutationObserver.observe(document.getElementById("main-content"), {
