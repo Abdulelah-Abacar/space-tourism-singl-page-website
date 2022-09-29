@@ -25,6 +25,9 @@ lis.forEach(li => {
     if (window.innerWidth <= 767.99) {
       document.querySelector(".pages").style.display = "none";
       btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
+    } else {
+      document.querySelector(".pages").style.display = "flex";
+      btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
     }
   })
 })
