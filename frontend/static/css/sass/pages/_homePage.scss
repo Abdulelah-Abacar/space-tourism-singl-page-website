@@ -1,0 +1,109 @@
+@use "../helper/variables" as *;
+.container {
+  #main-content {
+    .home-content {
+      padding: 2rem;
+      color: white;
+      background-image: url(../assets/home/background-home-desktop.jpg);
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      background-size: cover;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @media #{$minTablet} and #{$maxTablet} {
+      background-image: url(../assets/home/background-home-tablet.jpg);
+      flex-direction: column;
+      height: fit-content;
+      }
+      @media #{$maxPhone} {
+        background-image: url(../assets/home/background-home-mobile.jpg);
+        flex-direction: column;
+        height: fit-content;
+        min-height: 100vh;
+      }
+      .info {
+        width: 40%;
+        font-size: 1.8rem;
+        font-weight: lighter;
+        @media #{$minTablet} and #{$maxTablet} {
+          margin-top: 10rem;
+          margin-bottom: 4rem;
+        }
+        @media #{$maxPhone} {
+          margin-top: 10rem;
+          margin-bottom: 3rem;
+          width: 100%;
+        }
+        .intro {
+          text-transform: uppercase;
+          margin-bottom: 1rem;
+          color: rgb(202, 202, 202);
+          @media #{$minTablet} and #{$maxTablet} {
+          margin-bottom: 0;
+          text-align: center;
+        }
+        @media #{$maxPhone} {
+            margin-bottom: 0;
+            text-align: center;
+            width: 100%;
+          }
+        }
+        .subject {
+          font-size: 10rem;
+          font-weight: 100;
+          letter-spacing: .5rem;
+          text-transform: uppercase;
+          @media #{$minTablet} and #{$maxTablet} {
+          text-align: center;
+        }
+        @media #{$maxPhone} {
+            text-align: center;
+            width: 100%;
+          }
+        }
+        .information {
+          margin-top: 3rem;
+          color: rgb(202, 202, 202);
+          @media #{$minTablet} and #{$maxTablet} {
+          margin-top: 0;
+          text-align: center;
+        }
+        @media #{$maxPhone} {
+            margin-top: 0;
+            text-align: center;
+            width: 100%;
+          }
+        }
+      }
+      .explore {
+        width: 40%;
+        text-align: center;
+        @media #{$maxPhone} {
+          width: 100%;
+        }
+        .btn {
+          width: 25rem;
+          height: 25rem;
+          border-radius: 50%;
+          border: none;
+          outline: none;
+          font-size: 3rem;
+          text-transform: uppercase;
+          cursor: pointer;
+          a {
+            text-decoration: none;
+            color: #000;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

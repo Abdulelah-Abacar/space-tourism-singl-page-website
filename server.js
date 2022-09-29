@@ -1,0 +1,17 @@
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+let data = require("./data.json");
+
+app.use("/static", express.static(path.resolve(__dirname, "frontend", "static")));
+
+app.get('/json', (req, res) => res.json(data))
+
+app.get("/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
+});
+
+
+app.listen(process.env.PORT || 7000, () => console.log("Server running..."));

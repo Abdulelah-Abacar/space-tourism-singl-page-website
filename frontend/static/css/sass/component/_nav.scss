@@ -1,0 +1,121 @@
+@use "../helper/variables" as *;
+.container{
+   .header {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+    padding-right: 0;
+    @media #{$maxPhone} {
+      padding-right: 2rem;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media #{$maxPhone} {
+        position: relative;
+      }
+      .logo {
+        img {
+          max-width: 100%;
+        }
+      }
+      .hamburger-icon {
+        @media #{$maxPhone} {
+          .pages {
+            display: none;
+            height: 100vh;
+            position: fixed;
+            width: 70%;
+            top: 0;
+            right: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .blur {
+              background-color: rgba(0, 0, 0, .5);
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              z-index: -1;
+            }
+            li {
+              width: fit-content;
+              &.active {
+                a {
+                  color: #777;
+                }
+              }
+              a {
+                width: 100%;
+                font-size: 3rem;
+                font-weight: bold;
+                &:hover {
+                    color: #777;
+                }
+              }
+            }
+          }
+        }
+        .open-close {
+          transform: translateY(-50%);
+          background: transparent;
+          border: none;
+          outline: none;
+          z-index: 10000;
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          &:hover {
+            cursor: pointer;
+          }
+          img {
+            display: none;
+            @media #{$maxPhone} {
+              display: block;
+            }
+          }
+        }
+        .pages {
+          @media (min-width: 992px) {
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 70rem;
+            padding: 0 4rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          }
+          @media #{$minTablet} and (max-width: 860px) {
+            width: 60rem;
+          }
+          @media #{$maxPhone} {
+            display: none;
+          }
+          li {
+            font-size: 1.5rem;
+            display: grid;
+            place-content: center;
+            transition: all .5s;
+            z-index: 2;
+            @media #{$minTablet} {
+              &.active, &:hover {
+                border-bottom: .3rem solid #fff;
+              }
+            }
+            a {
+              font-size: 2rem;
+              text-decoration: none;
+              color: white;
+              height: 5.7rem;
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+   }
+}

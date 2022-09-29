@@ -1,0 +1,152 @@
+@use "../helper/variables" as *;
+.container {
+  #main-content {
+    .crew-content {
+      padding: 2rem;
+      padding-bottom: 0;
+      color: white;
+      background-image: url(../assets/crew/background-crew-desktop.jpg);
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      background-size: cover;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @media #{$minTablet} and #{$maxTablet} {
+        background-image: url(../assets/crew/background-crew-tablet.jpg);
+        flex-direction: column;
+        height: fit-content;
+      }
+      @media #{$maxPhone} {
+        background-image: url(../assets/crew/background-crew-mobile.jpg);
+        flex-direction: column-reverse;
+        height: fit-content;
+      }
+      .info {
+        width: 40%;
+        height: 40rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        @media #{$minTablet} and #{$maxTablet} {
+          margin-top: 10rem;
+          margin-bottom: 4rem;
+          width: 60%;
+          height: 25rem;
+          align-items: center;
+        }
+        @media #{$maxPhone} {
+          margin-top: 2rem;
+          margin-bottom: 3rem;
+          width: 100%;
+          flex-direction: column-reverse;
+          align-items: center;
+          height: 25rem;
+        }
+        .intro {
+          text-transform: uppercase;
+          font-size: 1.8rem;
+          font-weight: lighter;
+          @media #{$minTablet} and #{$maxTablet} {
+            align-self: flex-start;
+          }
+          @media #{$maxPhone} {
+            align-self: flex-start;
+            position: absolute;
+            top: 10rem;
+          }
+          span {
+            color: #777;
+            margin-right: .9rem;
+          }
+        }
+        .more-info {
+          @media #{$minTablet} and #{$maxTablet} {
+            text-align: center;
+            width: 70%;
+          }
+          @media #{$maxPhone} {
+            text-align: center;
+          }
+          .role {
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            color: #777;
+            margin: 1rem 0;
+          }
+          .name {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: lighter;
+            letter-spacing: .5rem;
+            text-transform: uppercase;
+          }
+          .bio {
+            font-size: 1.5rem;
+            color: #777;
+            width: 35rem;
+            @media #{$minTablet} and #{$maxTablet} {
+              width: 100%;
+              text-align: center;
+            }
+          }
+          }
+          .dots {
+            width: 9rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+              width: 1.5rem;
+              height: 1.5rem;
+              border-radius: 50%;
+              background-color: #777;
+              cursor: pointer;
+              &.active, &:hover {
+                background-color: #fff;
+              }
+            }
+          }
+        }
+        .imgs {
+          width: 40%;
+          display: flex;
+          list-style: none;
+          align-self: flex-end;
+          @media #{$minTablet} and #{$maxTablet} {
+            text-align: center;
+            width: 100%;
+          }
+          @media #{$maxPhone} {
+            text-align: center;
+            width: 100%;
+            margin-top: 13rem;
+          }
+          .img {
+            width: 40rem;
+            @media #{$minTablet} and #{$maxTablet} {
+              width: 100%;
+            }
+            @media #{$maxPhone} {
+              width: 100%;
+            }
+            &:not(.active) {
+              display: none;
+            }
+            img {
+              max-width: 100%;
+              @media #{$minTablet} and #{$maxTablet} {
+                max-width: 70%;
+              }
+              @media #{$maxPhone} {
+                max-width: 70%;
+              }
+            }
+          }
+        }
+    }
+  }
+}

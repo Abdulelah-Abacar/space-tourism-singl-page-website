@@ -1,0 +1,212 @@
+@use "../helper/variables" as *;
+.container {
+  #main-content {
+    .technology-content {
+      padding: 2rem;
+      padding-bottom: 0;
+      color: white;
+      background-image: url(../assets/technology/background-technology-desktop.jpg);
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      background-size: cover;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @media #{$minTablet} and #{$maxTablet} {
+        background-image: url(../assets/technology/background-technology-tablet.jpg);
+        flex-direction: column-reverse;
+        height: fit-content;
+        padding: 0;
+      }
+      @media #{$maxPhone} {
+        background-image: url(../assets/technology/background-technology-mobile.jpg);
+        flex-direction: column-reverse;
+        min-height: 100vh;
+        padding: 0;
+      }
+      .info {
+        width: 40%;
+        height: 40rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        @media #{$minTablet} and #{$maxTablet} {
+          width: 100%;
+          height: 25rem;
+          align-items: center;
+          justify-content: flex-end;
+          margin-bottom: 5rem;
+        }
+        @media #{$maxPhone} {
+          margin-top: 2rem;
+          margin-bottom: 3rem;
+          width: 100%;
+          flex-direction: column-reverse;
+          align-items: center;
+          height: 25rem;
+        }
+        .intro {
+          text-transform: uppercase;
+          font-size: 1.8rem;
+          font-weight: lighter;
+          align-self: flex-start;
+          @media #{$minTablet} and #{$maxTablet} {
+            position: absolute;
+            top: 10rem;
+            padding-left: 1.5rem;
+          }
+          @media #{$maxPhone} {
+            position: absolute;
+            top: 10rem;
+            align-self: center;
+          }
+          @media (min-width: 640px) and (max-width: 767.95px) {
+            position: absolute;
+            top: 5rem;
+          }
+          span {
+            color: #777;
+            margin-right: .9rem;
+          }
+        }
+        .more-info {
+          display: flex;
+          @media #{$minTablet} and #{$maxTablet} {
+            flex-direction: column;
+            align-items: center;
+          }
+          @media #{$maxPhone} {
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1.5rem;
+          }
+          .dots {
+            width: 15rem;
+            height: 20rem;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            @media #{$minTablet} and #{$maxTablet} {
+              height: fit-content;
+              flex-direction: row;
+              width: 19rem;
+            }
+            @media #{$maxPhone} {
+              height: fit-content;
+              flex-direction: row;
+              width: 19rem;
+            }
+            li {
+              width: 5rem;
+              height: 5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 2rem;
+              border-radius: 50%;
+              background-color: #0000;
+              border: .1rem solid #777;
+              color: #fff;
+              cursor: pointer;
+              &.active, &:hover {
+                background-color: #fff;
+                color: #000;
+                border: none;
+              }
+            }
+          }
+          .text {
+            @media #{$maxPhone} {
+              display: flex;
+              flex-direction: column;
+            }
+            .role {
+              text-transform: uppercase;
+              font-size: 1.4rem;
+              color: #777;
+              margin: 1rem 0;
+              @media #{$minTablet} and #{$maxTablet} {
+                text-align: center;
+              }
+              @media #{$maxPhone} {
+                text-align: center;
+              }
+            }
+            .name {
+              font-size: 3.5rem;
+              margin-bottom: 1.5rem;
+              font-weight: lighter;
+              letter-spacing: .5rem;
+              text-transform: uppercase;
+              @media #{$minTablet} and #{$maxTablet} {
+                text-align: center;
+              }
+              @media #{$maxPhone} {
+                text-align: center;
+              }
+            }
+            .description {
+              font-size: 1.5rem;
+              color: #777;
+              width: 40rem;
+              @media #{$minTablet} and #{$maxTablet} {
+                text-align: center;
+              }
+              @media #{$maxPhone} {
+                text-align: center;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .imgs {
+        width: 40%;
+        display: flex;
+        list-style: none;
+        @media #{$minTablet} and #{$maxTablet} {
+          margin-top: 15rem;
+          width: 100%;
+        }
+        @media #{$maxPhone} {
+          margin-top: 15rem;
+          width: 100%;
+        }
+        .img {
+          width: 40rem;
+          top: 15rem;
+          right: 0;
+          position: absolute;
+          @media #{$minTablet} and #{$maxTablet} {
+            width: 100%;
+            top: 0;
+            right: 0;
+            position: static;
+          }
+          @media #{$maxPhone} {
+            width: 100%;
+            top: 0;
+            right: 0;
+            position: static;
+          }
+          &:not(.active) {
+            display: none;
+          }
+          img {
+            max-width: 100%;
+            @media #{$minTablet} and #{$maxTablet} {
+              min-width: 100%;
+            }
+            @media #{$maxPhone} {
+              min-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

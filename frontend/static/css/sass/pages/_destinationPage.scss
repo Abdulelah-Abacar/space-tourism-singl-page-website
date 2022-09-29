@@ -1,0 +1,134 @@
+@use "../helper/variables" as *;
+.container {
+  #main-content {
+    .destination-content {
+      padding: 2rem;
+      color: white;
+      background-image: url(../assets/destination/background-destination-desktop.jpg);
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      background-size: cover;
+      z-index: -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @media #{$minTablet} and #{$maxTablet} {
+        background-image: url(../assets/destination/background-destination-tablet.jpg);
+        flex-direction: column;
+        height: fit-content;
+      }
+      @media #{$maxPhone} {
+        background-image: url(../assets/destination/background-destination-mobile.jpg);
+        flex-direction: column;
+        height: fit-content;
+      }
+      .info {
+        width: 40%;
+        height: 35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media #{$minTablet} and #{$maxTablet} {
+          margin-top: 10rem;
+          margin-bottom: 4rem;
+          width: 60%;
+        }
+        @media #{$maxPhone} {
+          margin-top: 10rem;
+          margin-bottom: 3rem;
+          width: 100%;
+        }
+        .intro {
+          text-transform: uppercase;
+          font-size: 1.8rem;
+          font-weight: lighter;
+          span {
+            color: #777;
+            margin-right: .9rem;
+          }
+        }
+        .img {
+          width: 30rem;
+          @media #{$minTablet} and #{$maxTablet} {
+            width: 100%;
+            text-align: center;
+          }
+          img {
+            max-width: 100%;
+            @media #{$minTablet} and #{$maxTablet} {
+              max-width: 60%;
+            }
+          }
+        }
+      }
+      .information {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        @media #{$minTablet} and #{$maxTablet} {
+        text-align: center;
+      }
+      @media #{$maxPhone} {
+          text-align: center;
+          width: 100%;
+        }
+        .links {
+          width: 25rem;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          align-self: flex-start;
+          @media #{$minTablet} and #{$maxTablet} {
+            align-self: center;
+          }
+          @media #{$maxPhone} {
+            align-self: center;
+          }
+          li {
+            height: 2.2rem;
+            cursor: pointer;
+            &.active, &:hover {
+              border-bottom: .3rem solid #fff;
+            }
+          }
+        }
+        .more-info {
+          border-bottom: .1rem solid #777;
+          .plante-name {
+            font-size: 10rem;
+            font-weight: 100;
+            letter-spacing: .5rem;
+            text-transform: uppercase;
+          }
+          .plante-info {
+            font-size: 1.8rem;
+            color: rgb(202, 202, 202);
+            margin-bottom: 3.5rem;
+          }
+        }
+        .math {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          font-size: 1.6rem;
+          margin-top: 1rem;
+          .mil {
+            span {
+              font-size: 1rem;
+            }
+          }
+          .mon {
+            span {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

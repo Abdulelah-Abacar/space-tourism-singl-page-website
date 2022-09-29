@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body>
+  <main id="root" class="container">
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <img src="static/assets/shared/logo.svg" alt="logo">
+        </div>
+        <div class="hamburger-icon">
+          <button class="open-close"><img src="static/assets/shared/icon-hamburger.svg" alt="icon"></button>
+          <ul class="pages">
+            <div class="blur"></div>
+            <li class="active"><a href="/" class="nav__link" data-link>00 Home</a></li>
+            <li><a href="/destination" class="nav__link" data-link>01 Destination</a></li>
+            <li><a href="/crew" class="nav__link" data-link>02 Crew</a></li>
+            <li><a href="/technology" class="nav__link" data-link>03 Technology</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section id="main-content"></section>
+  </main>
+    <!-- <script type="module/javascript" src="/data.json"></script> -->
+    <script type="module" src="static/js/route.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
