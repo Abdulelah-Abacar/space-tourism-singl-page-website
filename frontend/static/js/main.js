@@ -22,11 +22,12 @@ lis.forEach(li => {
   li.addEventListener("click", () => {
     lis.forEach(ele => ele.classList.remove("active"))
     li.classList.add("active");
+    if (window.innerWidth >= 768) {
+      document.querySelector(".pages").style.display = "flex";
+      btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
+    }
     if (window.innerWidth <= 767.99) {
       document.querySelector(".pages").style.display = "none";
-      btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
-    } else {
-      document.querySelector(".pages").style.display = "flex";
       btn.children[0].src = "static/assets/shared/icon-hamburger.svg";
     }
   })

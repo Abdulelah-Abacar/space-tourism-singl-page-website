@@ -116,7 +116,7 @@ html {
     width: 70rem;
     padding: 0 4rem;
     list-style: none;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: space-around;
   }
