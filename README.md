@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Click here](https://www.frontendmentor.io/solutions/responsive-single-page-application-q_lTUkY02X)
-- Live Site URL: [Click here](https://enigmatic-meadow-74854.herokuapp.com/)
+- Live Site URL: [Click here](https://space-tourism-single-page.herokuapp.com/)
 
 ## My process
 
